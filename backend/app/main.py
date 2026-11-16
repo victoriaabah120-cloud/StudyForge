@@ -1,7 +1,11 @@
 from fastapi import FastAPI
+
+from app.api import documents
 from app.config import GROQ_API_KEY
 
 app = FastAPI(title="StudyForge")
+
+app.include_router(documents.router)
 
 
 @app.get("/")
